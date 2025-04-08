@@ -1,3 +1,15 @@
+```npm install --global serve```
+
+`` serve -s out -p 3000 ``
+
+ ### This one is to test, either our SSG is working or not. 
+### After building it should create a out folder.
+
+### Next.js Documentation on Static Exports
+` https://nextjs.org/docs/app/building-your-application/deploying/static-exports`
+
+#### ----upto this extent added again by rakesh after cloning this repo ----
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
