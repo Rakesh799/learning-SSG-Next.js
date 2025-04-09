@@ -1,17 +1,15 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 function ProductBox({ product }) {
   return (
     <div className='bg-white p-4 rounded-lg shadow-2xl mt-4 m-2'>
       <Link href={'/product-details/' + product.id}>
-        <Image
+        <img
           src={product.image}
           width={300}
           height={150}
           alt={product.title}
-          className='w-full sm:h-52 min-h-52 h-fit object-cover rounded-md'
-          priority
+          className='w-full sm:h-52 min-h-52 h-fit object-contain rounded-md'
         />
       </Link>
 

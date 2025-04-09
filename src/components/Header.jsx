@@ -36,7 +36,7 @@ export default Header
 
 const NavBar = () => {
   return (
-    <navbar className="flex items-center gap-5">
+    <div className="flex items-center gap-5">
       <ul className='flex items-center gap-3 font-semibold'>
         <li className=""><Link href="/">Home</Link></li>
       </ul>
@@ -49,6 +49,6 @@ const NavBar = () => {
           </span>
         </div>
       </div>
-    </navbar>
+    </div>
   )
 }
