@@ -1,17 +1,35 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import Container from '@/components/Container'
 import Link from 'next/link'
 import { FiSearch, FiShoppingCart } from 'react-icons/fi'
 
 function Header() {
+
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  const handleHamburger = () => {
+    setMenuOpen(!menuOpen)
+  }
+
+
   return (
     <header className={`bg-[#ffffff33] border border-[#ffffff33] sticky top-0 z-50 backdrop-blur-[40px] py-3 px-1 shadow`}>
-      <Container className='flex justify-between items-center'>
+      <Container className='flex md:flex-row flex-col justify-between items-center gap-6 md:gap-0'>
 
-        <div className="flex items-center">
-          <span className="text-[#810446] font-bold text-4xl">E-Store
-            <b className='text-black'>.</b>
-          </span>
+        <div className="flex items-center justify-between w-full md:w-[200px]">
+          <div>
+            <span className="text-[#810446] font-bold text-4xl cursor-pointer">E-Store
+              <b className='text-black'>.</b>
+            </span>
+          </div>
+          <div>
+            <img
+              className='md:hidden cursor-pointer'
+              onClick={handleHamburger}
+              src={menuOpen ? "/cross.svg" : "/hamburger.svg"}
+              alt="Hamburger icon" />
+          </div>
         </div>
 
         <div className={`flex-1 max-w-[500px] lg:flex hidden items-center ml-5`}>
@@ -22,10 +40,13 @@ function Header() {
 
           />
           <button className="bg-[#810446] text-white px-4 py-[11.5px] rounded-r-[20px] rounded-l-none cursor-pointer border-none">
-            <FiSearch size={18} strokeWidth={3}/>
+            <FiSearch size={18} strokeWidth={3} />
           </button>
         </div>
-        <NavBar/>
+
+        <div className={`md:flex ${menuOpen ? "flex" : "hidden"}`}>
+          <NavBar />
+        </div>
       </Container>
     </header>
   )
@@ -36,9 +57,12 @@ export default Header
 
 const NavBar = () => {
   return (
-    <div className="flex items-center gap-5">
-      <ul className='flex items-center gap-3 font-semibold'>
-        <li className=""><Link href="/">Home</Link></li>
+    <div className={`flex items-center gap-5`}>
+      <ul className='flex items-center gap-4 font-semibold'>
+        <li className="hover:text-[#810446]"><Link href="/">HOME</Link></li>
+        <li className="hover:text-[#810446]"><Link href="/about">ABOUT US</Link></li>
+        <li className="hover:text-[#810446]"><Link href="/contact">CONTACT</Link></li>
+        <li className="hover:text-[#810446]"><Link href="/store">STORE</Link></li>
       </ul>
 
       <div className="flex items-center gap-4">

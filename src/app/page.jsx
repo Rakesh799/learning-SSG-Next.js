@@ -1,10 +1,11 @@
-import FeaturedProducts from "@/components/FeaturedProducts";
+import BestSellingProducts from "@/components/BestSellingProducts";
+import HeroSection from "@/components/HeroSection";
 
 export default function Home() {
   return (
     <>
-      <h1 className="text-center mt-4">STATIC SITE GENERATION</h1>
-      <FeaturedProducts />
+      <HeroSection/>
+      <BestSellingProducts/>
     </>
   );
 }

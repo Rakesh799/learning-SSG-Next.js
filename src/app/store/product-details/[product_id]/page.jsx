@@ -11,7 +11,6 @@ export async function generateStaticParams() {
 }
 
 async function ProductDetails({ params }) {
-  // const res = await fetch(`https://fakestoreapi.in/api/products/${params.product_id}`)
   const res = await fetch(`https://fakestoreapi.com/products/${params.product_id}`)
   const data = await res.json()
   const product = data
@@ -23,7 +22,7 @@ async function ProductDetails({ params }) {
           <img
             src={product.image}
             alt={product.title}
-            className="w-[400px] h-[500px] md:w-1/2 object-contain"
+            className="w-[400px] h-[500px] md:w-1/2 object-contain p-6"
           />
 
           <div className="p-6 md:w-1/2">
@@ -40,7 +39,7 @@ async function ProductDetails({ params }) {
               <li><strong>Category:</strong> {product.category}</li>
             </ul>
 
-            <button className='mt-6 px-6 py-3 bg-[#810446] hover:bg-pink-600 text-white font-semibold rounded-lg cursor-pointer'>
+            <button className='mt-6 px-6 py-3 bg-[#810446] hover:bg-[#810447ec] text-white font-semibold rounded-lg cursor-pointer'>
               Add to Cart
             </button>
           </div>
