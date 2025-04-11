@@ -3,9 +3,15 @@ import React, { useState } from 'react'
 import Container from '@/components/Container'
 import Link from 'next/link'
 import { FiSearch, FiShoppingCart } from 'react-icons/fi'
+import { useSearch } from '@/context/SearchContext'
 
 function Header() {
 
+  //To use Context from SearchContext
+  const { searchQuery, setSearchQuery } = useSearch()
+
+
+  // For Hamburger Functionality
   const [menuOpen, setMenuOpen] = useState(false)
 
   const handleHamburger = () => {
@@ -37,7 +43,8 @@ function Header() {
             type="text"
             placeholder='Search for products...'
             className={`w-full px-4 py-2 border border-[#ddd] rounded-l-[20px] rounded-r-none outline-none`}
-
+            value={searchQuery}
+            onChange={(e)=>setSearchQuery(e.target.value)}
           />
           <button className="bg-[#810446] text-white px-4 py-[11.5px] rounded-r-[20px] rounded-l-none cursor-pointer border-none">
             <FiSearch size={18} strokeWidth={3} />

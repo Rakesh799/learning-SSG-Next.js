@@ -1,19 +1,28 @@
 import Container from '@/components/Container'
+import products from '@/data/products'
 
 export async function generateStaticParams() {
-  // const response = await fetch("https://fakestoreapi.in/api/products")
-  const response = await fetch("https://fakestoreapi.com/products")
-  const data = await response.json()
+  //   // const response = await fetch("https://fakestoreapi.in/api/products")
+  //   const response = await fetch("https://fakestoreapi.com/products")
+  //   const data = await response.json()
 
-  return data.map((product) => ({
-    product_id: product.id.toString(),
+  //   return data.map((product) => ({
+  //     product_id: product.id.toString(),
+  //   }))
+
+  return products.map((product) => ({
+    product_id: product.id.toString()
   }))
 }
 
-async function ProductDetails({ params }) {
-  const res = await fetch(`https://fakestoreapi.com/products/${params.product_id}`)
-  const data = await res.json()
-  const product = data
+function ProductDetails({ params }) {
+  // const res = await fetch(`https://fakestoreapi.com/products/${params.product_id}`)
+  // const data = await res.json()
+  // const product = data
+
+  const productID = parseInt(params.product_id)
+
+  const product = products.find((product) => product.id == productID)
 
   return (
     <Container>
