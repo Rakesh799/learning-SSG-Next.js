@@ -23,7 +23,7 @@ function Header() {
     <header className={`bg-[#ffffff33] border border-[#ffffff33] sticky top-0 z-50 backdrop-blur-[40px] py-3 px-1 shadow`}>
       <Container className='flex md:flex-row flex-col justify-between items-center gap-6 md:gap-0'>
 
-        <div className="flex items-center justify-between w-full md:w-[200px]">
+        <div className="flex items-center justify-between w-full md:w-[140px]">
           <div>
             <span className="text-[#810446] font-bold text-4xl cursor-pointer">E-Store
               <b className='text-black'>.</b>
@@ -38,11 +38,11 @@ function Header() {
           </div>
         </div>
 
-        <div className={`flex-1 max-w-[500px] lg:flex hidden items-center ml-5`}>
+        <div className={`flex-1 max-w-[500px] md:flex items-center ml-5 ${menuOpen ? "flex" : "hidden"}`}>
           <input
             type="text"
             placeholder='Search for products...'
-            className={`w-full px-4 py-2 border border-[#ddd] rounded-l-[20px] rounded-r-none outline-none`}
+            className={`lg:w-full w-fit px-4 py-2 border border-[#ddd] rounded-l-[20px] rounded-r-none outline-none`}
             value={searchQuery}
             onChange={(e)=>setSearchQuery(e.target.value)}
           />
